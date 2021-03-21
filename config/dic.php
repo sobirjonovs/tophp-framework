@@ -27,7 +27,7 @@ function dependencyInjector($argv = null)
             return new Application($container->get('dotenv'), $container->get('request'));
         },
         'Router' => function($container) {
-            return new Route($container->get('request'));
+            return new Route();
         },
         'request' => function($container) {
             return new Bootstrap\Requests\Request();

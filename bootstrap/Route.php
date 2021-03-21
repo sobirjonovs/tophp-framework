@@ -17,11 +17,6 @@ class Route extends Controller
      */
     private $request;
 
-    public function __construct(Request $request)
-    {
-        $this->request = $request;
-    }
-
     public function get($url, $controller)
     {
         $this->pushToRoutes($url, $controller);
@@ -100,7 +95,7 @@ class Route extends Controller
     {
         $data = [
             'urls' => $this->processUrls(array_column($this->routes, 'url'),
-                $this->request->getUri()),
+                request()->getUri()),
             'verbs' => array_column($this->routes, 'verb')
         ];
 
@@ -109,9 +104,9 @@ class Route extends Controller
 
     private function getRouters(string $needle = null)
     {
-        $uri = htmlspecialchars(filter_var(ltrim($this->request->getUri(), '/'), FILTER_SANITIZE_URL));
+        $uri = htmlspecialchars(filter_var(ltrim(request()->getUri(), '/'), FILTER_SANITIZE_URL));
         $data = [
-            'requestMethod' => strtolower($this->request->getMethod()),
+            'requestMethod' => strtolower(request()->getMethod()),
             'uri' => $uri,
             'urlsVerbs' => array_combine(
                 $this->processUrls($this->getUrlsVerbs('urls'), $uri),
