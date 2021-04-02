@@ -12,7 +12,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        User::delete(['id' => 1]);
         return view('welcome');
     }
 }
