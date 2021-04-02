@@ -23,7 +23,11 @@ function request()
 function view(string $view, array $data = [])
 {
    $viewer = dependencyInjector()->get('View');
-   return $viewer->render($view, $data);
+    try {
+        return $viewer->render($view, $data);
+    } catch (Exception $exception) {
+        die($exception->getMessage());
+    }
 }
 
 function str_ends_with($needle, $string): bool
