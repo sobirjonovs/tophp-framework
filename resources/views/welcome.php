@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Tutorials.uz PHP Framework</title>
+    <title>TOPHP Framework</title>
     <meta name="description" content="Prism is a beautiful Bootstrap 4 template for open-source landing pages."/>
 
     <!--Google font-->
@@ -25,7 +25,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 d-flex flex-row align-items-center justify-content-between">
-                <div class="heading-brand">TPHP Framework</div>
+                <div class="heading-brand">TOPHP Framework</div>
                 <a href="https://t.me/tutorialsuz" class="btn btn-dark" target="_blank">Follow on Telegram</a>
             </div>
         </div>
@@ -62,7 +62,7 @@
                 <ul class="list-inline">
                     <li class="list-inline-item"><a href="https://github.com/sobirjonovs">Test Drive</a></li>
                     <li class="list-inline-item"><a href="https://github.com/sobirjonovs">API Docs</a></li>
-                    <li class="list-inline-item"><a href="https://github.com/sobirjonovs">Fork TPHP on GitHub</a></li>
+                    <li class="list-inline-item"><a href="https://github.com/sobirjonovs">Fork TOPHP on GitHub</a></li>
                 </ul>
             </div>
         </div>

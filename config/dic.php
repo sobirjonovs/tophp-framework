@@ -6,6 +6,7 @@ use Bootstrap\Commands\MigrationCommand;
 use Bootstrap\Commands\ServerCommand;
 use Bootstrap\Route;
 use Bootstrap\View;
+use Core\Models\Model;
 
 function dependencyInjector($argv = null)
 {
@@ -28,6 +29,9 @@ function dependencyInjector($argv = null)
         },
         'Router' => function($container) {
             return new Route();
+        },
+        'Model' => function($container) {
+            return new Model();
         },
         'request' => function($container) {
             return new Bootstrap\Requests\Request();

@@ -5,11 +5,13 @@
     "license": "OpenSource",
     "minimum-stability": "beta",
     "require": {
-        "php-di/php-di": "^7.0@beta"
+        "php-di/php-di": "^7.0@beta",
+      "ext-pdo": "*"
     },
     "autoload": {
         "psr-4": {
             "App\\": "app/",
+            "Core\\": "core/",
             "Bootstrap\\": "bootstrap/"
         },
         "files": ["config/dic.php", "config/database.php", "config/helpers.php"],

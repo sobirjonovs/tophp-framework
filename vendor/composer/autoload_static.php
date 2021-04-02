@@ -32,6 +32,10 @@ class ComposerStaticInit38d7f52b32fe2055e5109f8275ec9fac
         array (
             'DI\\' => 3,
         ),
+        'C' => 
+        array (
+            'Core\\' => 5,
+        ),
         'B' => 
         array (
             'Bootstrap\\' => 10,
@@ -63,6 +67,10 @@ class ComposerStaticInit38d7f52b32fe2055e5109f8275ec9fac
         array (
             0 => __DIR__ . '/..' . '/php-di/php-di/src',
         ),
+        'Core\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/core',
+        ),
         'Bootstrap\\' => 
         array (
             0 => __DIR__ . '/../..' . '/bootstrap',
@@ -74,6 +82,7 @@ class ComposerStaticInit38d7f52b32fe2055e5109f8275ec9fac
     );
 
     public static $classMap = array (
+        'Bootstrap\\Requests\\Request' => __DIR__ . '/../..' . '/bootstrap/Requests/Request.php',
         'Kernel' => __DIR__ . '/../..' . '/config/Kernel.php',
     );
 

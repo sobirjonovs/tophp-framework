@@ -25,3 +25,9 @@ function view(string $view, array $data = [])
    $viewer = dependencyInjector()->get('View');
    return $viewer->render($view, $data);
 }
+
+function str_ends_with($needle, $string): bool
+{
+    if (substr($string, -1) === $needle) return true;
+    return false;
+}
