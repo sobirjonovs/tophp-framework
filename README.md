@@ -2,6 +2,10 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/sobirjonovs/tophp-framework) TOPHP - the most popular php framework :)
 
+# Install all packages
+```sh
+composer install
+```
 # Start local web server
 ```sh
 php do server
