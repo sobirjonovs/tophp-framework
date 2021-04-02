@@ -13,23 +13,19 @@ class View
     public function render(string $view, array $data)
     {
         $view = self::FOLDER . self::DS . $view . self::FILE_EXTENSION;
-        if (file_exists($view)) {
+        if (file_exists($view)) 
             echo $this->getView($view, $data);
-        } else {
-            echo 'mavjud emas';
-        }
+        else
+            throw new \Exception(
+                sprintf("%s view was not found on the server", $view)
+            );
     }
 
     private function getView(string $view, $data)
     {
         ob_start();
-        extract($data);
-        include_once $view;
+            extract($data);
+            include_once $view;
         return ob_get_clean();
     }
-
-//    private function getLayout()
-//    {
-//        //
-//    }
 }
