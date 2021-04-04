@@ -44,7 +44,7 @@ class User extends Model
     // protected $table = 'customers'; 
 }
 ```
-# Getting data from table via model
+# Getting a data from table via model
 ```sh
 <?php
 
@@ -60,8 +60,30 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = User::where(['id' => 1, 'status' => 'confirmed'])->get();
+        $user = User::where(['is_customer' => 1, 'status' => 'confirmed'])->get();
         return view('welcome', compact('user'));
+    }
+}
+
+```
+# Defining a layout for the view
+- If you don't define a layout for the view, the framework uses default layout (resources/layouts/app.php)
+```sh
+<?php
+
+namespace App\Controllers;
+
+use App\Models\User;
+use Exception;
+
+class HomeController extends Controller
+{
+    /**
+     * @return mixed
+     */
+    public function index()
+    {
+        return view('welcome', [], 'layoutname');
     }
 }
 
