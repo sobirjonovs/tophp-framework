@@ -20,11 +20,12 @@ function request()
     return dependencyInjector()->get('request');
 }
 
-function view(string $view, array $data = [])
+function view(string $view, array $data = [], $layout = 'app')
 {
-   $viewer = dependencyInjector()->get('View');
+    $viewClass = dependencyInjector()->get('View');
+    $viewClass->layout = $layout;
     try {
-        return $viewer->render($view, $data);
+        return $viewClass->render($view, $data);
     } catch (Exception $exception) {
         die($exception->getMessage());
     }
