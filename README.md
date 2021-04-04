@@ -31,3 +31,38 @@ $route->get('/', [HomeController::class, 'index']);
 | all() | Gets whole data from the table |
 | where(array $condition) | Gets data conditionally from table |
 | other methods: find(), update(), get() and etc... | Not completed |
+
+# Defining custom table
+- If you don't define $table property, framework uses the model's plural name as table name
+```sh
+<?php
+
+namespace App\Models;
+
+class User extends Model
+{
+    // protected $table = 'customers'; 
+}
+```
+# Getting data from table via model
+```sh
+<?php
+
+namespace App\Controllers;
+
+use App\Models\User;
+use Exception;
+
+class HomeController extends Controller
+{
+    /**
+     * @return mixed
+     */
+    public function index()
+    {
+        $user = User::where(['id' => 1, 'status' => 'confirmed'])->get();
+        return view('welcome', compact('user'));
+    }
+}
+
+```
