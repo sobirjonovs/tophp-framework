@@ -41,9 +41,6 @@ class ServerCommand extends CommandAbstract
 
     private function isSystem(string $type)
     {
-        if (PHP_OS === $type)
-            return true;
-        else
-            return false;
+        return PHP_OS === $type;
     }
 }
