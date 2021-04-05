@@ -17,7 +17,7 @@ php do server
 use App\Controllers\HomeController;
 
 // Adding wildcard with colon character
-$route->get('user/:id', function($id) {
+$route->get('user/{id}', function($id) {
     echo $id;
 });
 
