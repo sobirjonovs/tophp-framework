@@ -24,7 +24,6 @@ class UrlManager
 
     protected function is($route): bool
     {
-        if (trim($route) === basename(request()->getUri())) return true;
-        else return false;
+        return trim($route) === basename(request()->getUri());
     }
 }
