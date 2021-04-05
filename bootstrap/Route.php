@@ -44,7 +44,7 @@ class Route extends Controller
      */
     private function routePattern($url): string
     {
-        return "#^" . preg_replace("#/{([^/]+)}#", "/(?<$1>[^/]+)", $url) . "/?$#";
+        return "#^/?" . preg_replace("#/{([^/]+)}#", "/(?<$1>[^/]+)", $url) . "/?$#";
     }
 
     /**

@@ -13,7 +13,7 @@ class Request
 
     public function getUri()
     {
-        return ltrim($_SERVER['REQUEST_URI'], '/');
+        return $_SERVER['REQUEST_URI'];
     }
 
     public function getMethod()
