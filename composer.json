@@ -6,7 +6,8 @@
     "minimum-stability": "beta",
     "require": {
         "php-di/php-di": "^7.0@beta",
-      "ext-pdo": "*"
+      "ext-pdo": "*",
+        "guzzlehttp/guzzle": "^7.3"
     },
     "autoload": {
         "psr-4": {
