@@ -20,9 +20,8 @@ class Route extends Controller
      */
     public function get($url, $controller)
     {
-        if (preg_match($this->routePattern($url), $this->getUri(), $data)) {
-            $this->route = $this->getData($data);
-            $this->route['controller'] = $controller;
+        if (preg_match($this->pattern($url), $this->getUri(), $data)) {
+            $this->set($controller, $this->wildcards($data));
         }
     }
 
@@ -31,10 +30,9 @@ class Route extends Controller
      */
     private function discoverRoute()
     {
-        if (empty($this->route)) throw new NotFoundException(sprintf(
+        if (!$this->route) throw new NotFoundException(sprintf(
                 "The requested route <b>%s</b> is not found on server", $this->getUri())
         );
-
         $this->dispatch($this->route['controller'], $this->route);
     }
 
@@ -42,7 +40,7 @@ class Route extends Controller
      * @param $url
      * @return string
      */
-    private function routePattern($url): string
+    private function pattern($url): string
     {
         return "#^/?" . preg_replace("#/{([^/]+)}#", "/(?<$1>[^/]+)", $url) . "/?$#";
     }
@@ -51,13 +49,19 @@ class Route extends Controller
      * @param array $data
      * @return array
      */
-    private function getData(array $data): array
+    private function wildcards(array $data): array
     {
         $result = [];
         foreach ($data as $key => $value) {
             if (!is_int($key)) $result[$key] = $value;
         }
-        return$result;
+        return $result;
+    }
+
+    private function set($controller, $data)
+    {
+        $this->route = $data;
+        $this->route['controller'] = $controller;
     }
 
     public function __destruct()
